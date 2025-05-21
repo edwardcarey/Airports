@@ -1,5 +1,7 @@
 # Kuala Lumpur
 
+Version 1.2 *by _edwardcarey_* (Feel free to DM for QNA)
+
 Version 1.1 *by BestBearrr*
 
 Thanks to *dunnebokter12* for developing v1.0!
@@ -19,10 +21,35 @@ This readme file provides a brief overview of the operations at the airports. Ch
 
 The table below shows the skill points at which an airport or runway is unlocked.
 
-| Skill Level | Airport unlocked |                       Runways unlocked                       |
-| :---------: | :--------------: | :----------------------------------------------------------: |
-|    START    |       WMKK       | **North Flow:** Arrivals - Rwy 32L/33, Departures - Rwy 32R/33<br>**South Flow:** Arrivals - Rwy 14L/15, Departures - Rwy 14R/15 |
-|     10      |       WMSA       |                 WMSA Rwy 15 becomes active.                  |
+| Skill Level | Airport unlocked |         
+| :---------: | :--------------: | 
+|    START    |       WMKK       |
+|     10      |       WMSA       |         
+
+
+Runway Configuration WMKK
+
+| **Runway Configuration** | **ODD South Flow** | **Runway Configuration** | **EVEN North Flow** | **Remarks** |
+| :----------------------: | :---------------:  | :----------------------: | :----------------:  | :---------: |
+| 1 | RWY14L ↓ <br> RWY14R ↓↑ <br> RWY15 ↓↑ | 2 | RWY32R ↓↑ <br> RWY32L ↓ <br> RWY33 ↓↑ | Normal Operation |
+| 3 | RWY14L ↓↑ <br> RWY14R ↓ <br> RWY15 ↓↑ | 4 | RWY32R ↓ <br> RWY32L ↓↑ <br> RWY33 ↓↑ | HIRO Operation |
+| 5 | RWY14L ↓↑ <br> RWY14R ↓↑ <br> RWY15 ↓↑ | 6 | RWY32R ↓↑ <br> RWY32L ↓↑ <br> RWY33 ↓↑ | Rare Operation |
+
+* For Runway Configuration 5 and 6 rarely use as it only operate in the early morning operation in real life
+
+    
+Runway Configuration WMSA
+| **Runway Configuration** | **South Flow** |
+| :----------------------: | :------------: |
+| 1 to 6 | RWY15 ↓↑ |
+
+Only RWY15 active at all configuration
+
+**NOTES**
+*  ↓ : Arrivals <br> ↑ : Departures <br>  ↓↑ : Arrivals and Departures
+* Arrivals runway are all active to allow dynamic operation and emergencies
+
+
 
 In Endless ATC, STARs are implemented as approach routes. To activate an approach, an aircraft must be flying direct to an applicable fix, then the APP button can be activated. 
 
@@ -49,14 +76,21 @@ For Android,
 #### Runway information
 
 * **North Flow**
-
-  Arrivals: Rwy 32L, 33
-  Departures: Rwy 32R, 33<br>
+  * Normal Operation <br>
+    Arrivals: Rwy 32L, 33 <br> Departures: Rwy 32R, 33
+  * HIRO Operation <br>
+    Arrivals: Rwy 32R, 33 <br> Departures : Rwy 32L, 33
+  * Rare Operation <br>
+    Arrivals : Rwy 32R, 32L, 33 <br> Departures : Rwy 32R, 32L, 33
 
 * **South Flow**
-
-  Arrivals: Rwy 14L, 15
-  Departures: Rwy 14R, 15
+  * Normal Operation <br>
+    Arrivals: Rwy 14L, 15 <br> Departures: Rwy 14R, 15
+  * HIRO Operation <br>
+    Arrivals: Rwy 14R, 15 <br> Departures: Rwy 14L, 15
+  * Rare Operation <br>
+    Arrivals: Rwy 14R, 14L, 15 <br> Departures: Rwy 14R, 14L, 15
+    
 
 Note: Mixed mode operations for runway 33.
 
@@ -105,6 +139,29 @@ In the Lumpur TMA,
   * PMS East is preferred, but may not be used due to reasons like weather. Consequently, PMS West will be used instead.
 
 * PMS East and West are 'unique' in that after the merge point, aircraft are on downwind; whereas typically, aircraft would be on base, shortly turning final. Make sure to separate aircraft as required to avoid loss of separation when turning base or final.
+  
+ **HOWEVER**
+
+ * HIRO (High Intensity Runway Operation) procedure has been implemented on 20th December 2024
+   * The implementation of HIRO aims to enhance runway capacity, reduce delays, and improve
+     overall efficiency of aircraft movements.
+   * The HIRO procedures are designed to maximise runway utilisation and reduce the time aircraft
+     occupy the runway
+   * HIRO objectives are to allow aircraft to land at their nearest runway (not consider the airlines)
+* During HIRO operation, all runway will be used with any two simutaneous departures and landings to optimise capacity. Both PMS West and PMS East may be use at the same time
+  * During occasional, PMS East may not be used due to reasons like weather. Consequently, PMS West and PMS South will be used instead.
+* During HIRO operation ;
+  * Both PMS West and East are used at the same time, airlines may use any nearest PMS for arrivals.
+  * Low-cost carriers (LCCs) may use any runway to land, For example ;
+      * Airasia flights that are westbound, using PMS East may use runway 32R when landing
+      * Malaysia Airlines flights that are eastbound, using PMS West may use runway 33 when landing
+  * PMS West and PMS South may be used when PMS East are not in used due to weather reasons
+      * Assign airlines to their nearest PMS or runway
+      * Both westbound and eastbound aircrafts may use either PMS West or South
+  * Keep in mind, its a dynamic operation meaning you may use runway 33 even using PMS East or use runway 32R even when using PMS West as there were no traffic nearby. Consider current traffics and situation.
+* Do check on Flightradar24 to see how they manage it in real life
+  
+
 * **Do remember to assign the landing runway for arrivals when they are flying to the merge point**, as the STAR ends at the merge point (it is easier to implement it this way, due to game limitations).
   * **Choose a different runway by pressing the APP button again.**
 * Clear aircraft to descend to different altitudes according to their landing runway.
@@ -112,8 +169,11 @@ In the Lumpur TMA,
   * Rwy 14R/32L - 3500ft
   * Rwy 15/33 - 2500ft
 * Simultaneous independent parallel approaches are permitted. However, it is difficult (read: almost impossible) to have independent parallel approaches when aircraft are streamed from only one PMS. Thus, the runway capacity is not able to be fully utilised when only one PMS is in use.
-* For a challenge, assign only airlines that operate at KLIA2, typically low-cost carriers (LCCs), to land on Rwy 15/33 only.
-  * like AirAsia (AXM/AIQ/AWQ/APG), Xanadu (XAX), Malindo (MXD), Scoot (TGW), Jetstar Asia (JSA), Cebu Pacific (CEB)
+* For a challenge, assign only airlines that operate at KLIA2, typically low-cost carriers (LCCs), to land on Rwy 15/33 only. (Refer internet for lowcost airlines that operates there)
+  * like AirAsia (AXM/AIQ/AWQ/APG), Xanadu (XAX), Scoot (TGW), Jetstar Asia (JSA), Cebu Pacific (CEB)
+
+    
+      
 
 #### Further notes:
 
@@ -139,7 +199,7 @@ Runway 15 is preferred.
 #### Approach Procedures
 
 * As turboprops (AT75/AT76) comprise a large amount of WMSA's traffic, arriving planes are simulated to enter at around FL140/FL150, the typical cruising level for turboprops.
-  * The limitation is that jet aircraft will also enter at this altitude, which is not really realistic.
+  * The limitation is that jet and narrowbody aircraft will also enter at this altitude, which is not really realistic.
 * STAR suffix is 1M. STARs incorporate a trombone sequencing technique. Offer track shortening as appropriate.
 
 
@@ -172,6 +232,8 @@ Runway 15 is preferred.
 ### Changelog
 
 ------
+
+**Version 1.2** realesed on 21 May 2025. Developed by edwardcarey. 
 
 **Version 1.1** released on 12 February 2023. Developed by BestBearrr.
 
